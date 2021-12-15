@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 31
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        applicationId "com.nast.spotify"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+    maven {  url 'https://jitpack.io'}
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.test:monitor:1.4.0'
+    implementation 'com.google.android.gms:play-services-maps:18.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.github.iammert:ScalingLayout:1.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    implementation 'com.spotify.sdk:spotify-android-auth-1.0.0@aar'
+    implementation 'com.spotify.sdk:spotify-player-24-noconnect-2.20b@aar'
+    implementation 'com.github.kaaes:spotify-web-api-android:0.4.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.spotify.sdk:spotify-app-remote-release-0.7.2@aar'
+
+}
